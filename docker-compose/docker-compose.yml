@@ -42,7 +42,7 @@ services:
       - net.ipv4.tcp_keepalive_time=45
 
   owgw-ui:
-    image: "tip-tip-wlan-cloud-ucentral.jfrog.io/owgw-ui:${OWGWUI_TAG}"
+    image: "routerarchitect123/owgw-ui:${OWGWUI_TAG}"
     networks:
       openwifi:
     env_file:
@@ -60,7 +60,6 @@ services:
       - "./certs/restapi-cert.pem:/etc/nginx/restapi-cert.pem"
       - "./certs/restapi-key.pem:/etc/nginx/restapi-key.pem"
     ports:
-      - "80:80"
       - "443:443"
 
   owsec:
@@ -196,7 +195,7 @@ services:
       - "16106:16106"
 
   kafka:
-    image: "docker.io/bitnami/kafka:${KAFKA_TAG}"
+    image: "docker.io/bitnamilegacy/kafka:${KAFKA_TAG}"
     networks:
       openwifi:
     env_file:
@@ -206,7 +205,7 @@ services:
       - kafka_data:/bitnami/kafka
 
   init-kafka:
-    image: "docker.io/bitnami/kafka:${KAFKA_TAG}"
+    image: "docker.io/bitnamilegacy/kafka:${KAFKA_TAG}"
     networks:
       openwifi:
     depends_on:
